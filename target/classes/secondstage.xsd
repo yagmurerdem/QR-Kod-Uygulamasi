@@ -1,0 +1,45 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://xml.cinigaz.com.tr"
+           targetNamespace="http://xml.cinigaz.com.tr"
+           elementFormDefault="qualified">
+
+
+    <xs:complexType name="secondStageInfo">
+        <xs:sequence>
+            <xs:element name="tesisatKod" type="xs:string"/>
+            <xs:element name="islemGuid" type="xs:string"/>
+            <xs:element name="islemTutari" type="xs:string"/>
+            <xs:element name="islemTuru" type="xs:ENTITY"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="secondStageRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tesisatKod" type="xs:string"/>
+                <xs:element name="islemGuid" type="xs:string"/>
+                <xs:element name="islemTutari" type="xs:string"/>
+                <xs:element name="islemTuru" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="secondStageResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="secondStageInfo" type="tns:secondStageInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

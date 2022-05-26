@@ -1,0 +1,52 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://xml.cinigaz.com.tr"
+           targetNamespace="http://xml.cinigaz.com.tr"
+           elementFormDefault="qualified">
+
+
+    <xs:complexType name="qrKodInfo">
+        <xs:sequence>
+            <xs:element name="kioskQrKodId" type="xs:long"/>
+            <xs:element name="tesisatKod" type="xs:string"/>
+            <xs:element name="islemGuid" type="xs:string"/>
+            <xs:element name="sorguSaatTarih" type="xs:date"/>
+            <xs:element name="islemTutari" type="xs:string"/>
+            <xs:element name="islemTuru" type="xs:ENTITY"/>
+            <xs:element name="mesaj" type="xs:boolean"/>
+            <xs:element name="mesajKodu" type="xs:int"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="getQrKodRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tesisatKod" type="xs:string"/>
+                <xs:element name="islemGuid" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+
+
+    <xs:element name="responseSonuc">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="qrKodInfo" type="tns:qrKodInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
